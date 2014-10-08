@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.droidbrew.decube.HomeActivity" >
+
+    <item
+        android:id="@+id/menu_question"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/name_question_activity"/>
+
+</menu>
