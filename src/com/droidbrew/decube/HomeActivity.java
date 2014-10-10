@@ -47,7 +47,6 @@ public class HomeActivity extends FragmentActivity implements
 	private long lastUpdate;
 	private AnswerManager answerManager;
 	private AnimationDrawable animCube;
-	private boolean isAnswer = false;
 	private boolean isFragment1 = true;
 
 	@Override
@@ -85,16 +84,15 @@ public class HomeActivity extends FragmentActivity implements
 		imgCube();
 		animCube = (AnimationDrawable) imgCube.getBackground();
 	}
+	
+	 protected void onPause() {
+         super.onPause();
+         sensorManager.unregisterListener(this);
+     }
 
 	private void onClickCube() {
 		
 		if(checkAdapter.getState().size() == 0) {
-//			fTrans = fManager.beginTransaction();
-//			fTrans.hide(checkFragment);
-//			fTrans.setCustomAnimations(R.animator.slide_in_right,
-//					R.animator.slide_in_right);
-//			fTrans.show(resFragment);
-//			fTrans.commit();
 			new AlertDialog.Builder(this)
 		    .setTitle("BOOM!")
 		    .setMessage("You should select at least one question !!!")
@@ -123,8 +121,6 @@ public class HomeActivity extends FragmentActivity implements
 			fTrans.commit();
 		}
 		
-		
-		isAnswer = true;
 	}
 
 	public void imgCube() {
@@ -140,21 +136,6 @@ public class HomeActivity extends FragmentActivity implements
 				List<Answer> randomList = new ArrayList<Answer>();
 				for (int i : checkAdapter.getState().keySet()) {
 					ids[a] = checkAdapter.getItem(i).getId();
-//					try {
-//						if (answerManager.findAnswerByQuestionId(ids[a]).size() == 0) {
-////							Toast.makeText(getApplicationContext(), "dsfdsf",
-////									Toast.LENGTH_LONG).show();
-////							break;
-//							List<Answer> emptyAnswers = new ArrayList<Answer>();
-//							emptyAnswers.add(new Answer(ids[a], "question witout answers!?"));
-//							randomList.addAll(emptyAnswers);
-//						}
-//						randomList.addAll(((DecubeApp) getApplication())
-//								.getAnswerManager().findAnswerByQuestionId(
-//										ids[a]));
-//					} catch (SQLException e) {
-//						Log.e(HomeActivity.class.getName(), e.getMessage(), e);
-//					}
 					a++;
 				}
 				resFragment.setId(ids);
@@ -165,8 +146,20 @@ public class HomeActivity extends FragmentActivity implements
 	}
 
 	public void spinStart() {
-		SpinCube spin = new SpinCube();
-		spin.execute();
+		animCube.stop();
+		animCube.start();
+		ListView lv = (ListView) checkFragment.getView().findViewById(R.id.question_list);
+		checkAdapter = (CheckBoxAdapter) lv.getAdapter();
+		int[] ids = new int[checkAdapter.getState().size()];
+		int a = 0;
+		List<Answer> randomList = new ArrayList<Answer>();
+		for (int i : checkAdapter.getState().keySet()) {
+			ids[a] = checkAdapter.getItem(i).getId();
+			a++;
+		}
+		resFragment.setId(ids);
+		resFragment2.setId(ids);
+		onClickCube();
 	}
 
 	@Override
@@ -191,7 +184,6 @@ public class HomeActivity extends FragmentActivity implements
 					R.animator.slide_in_right);
 			fTrans.show(checkFragment);
 			fTrans.commit();
-			isAnswer = false;
 			break;
 		}
 		return true;
@@ -221,55 +213,5 @@ public class HomeActivity extends FragmentActivity implements
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
 	}
 
-	class SpinCube extends AsyncTask<Void, Void, Void> {
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			animCube.start();
-			ListView lv = (ListView) checkFragment.getView().findViewById(R.id.question_list);
-			checkAdapter = (CheckBoxAdapter) lv.getAdapter();
-			int[] ids = new int[checkAdapter.getState().size()];
-			int a = 0;
-			List<Answer> randomList = new ArrayList<Answer>();
-			for (int i : checkAdapter.getState().keySet()) {
-				ids[a] = checkAdapter.getItem(i).getId();
-//				try {
-//					if (answerManager.findAnswerByQuestionId(ids[a]).size() == 0) {
-////						Toast.makeText(getApplicationContext(), "dsfdsf",
-////								Toast.LENGTH_LONG).show();
-////						break;
-//						List<Answer> emptyAnswers = new ArrayList<Answer>();
-//						emptyAnswers.add(new Answer(ids[a], "question witout answers!?"));
-//						randomList.addAll(emptyAnswers);
-//					}
-//					randomList.addAll(((DecubeApp) getApplication())
-//							.getAnswerManager().findAnswerByQuestionId(
-//									ids[a]));
-//				} catch (SQLException e) {
-//					Log.e(HomeActivity.class.getName(), e.getMessage(), e);
-//				}
-				a++;
-			}
-			resFragment.setId(ids);
-			resFragment2.setId(ids);
-			onClickCube();
-		}
-
-		@Override
-		protected Void doInBackground(Void... params) {
-			try {
-				Thread.sleep(2500);
-				Log.d("sleep", "2000");
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {
-			super.onPostExecute(result);
-			animCube.stop();
-		}
-	}
+	
 }
