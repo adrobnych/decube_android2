@@ -73,6 +73,12 @@ public class ResultFragment extends Fragment{
 				Question question = questionManager.findQuestionById(i);
 				str += "<img src='file:///android_res/drawable/question_ball.png'>" + question.getQuestion() + "<br />";
 				randomList = answerManager.findAnswerByQuestionId(i);
+				if(randomList.size() == 0){
+					List<Answer> emptyAnswers = new ArrayList<Answer>();
+					emptyAnswers.add(new Answer(i, "question witout answers!?"));
+					randomList.addAll(emptyAnswers);
+				}
+					
 				random = (int) (Math.random() * randomList.size());
 				str += "<img src='file:///android_res/drawable/answer_ball.png'>" + randomList.get(random).getAnswer() + "<br />";
 			}

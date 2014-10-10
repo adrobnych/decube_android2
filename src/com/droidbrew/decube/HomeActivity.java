@@ -99,13 +99,11 @@ public class HomeActivity extends FragmentActivity implements
 			fTrans.setCustomAnimations(R.animator.slide_in_right,
 					R.animator.slide_in_right);
 			if(isFragment1) {
-			fTrans.hide(resFragment);
-			
-			fTrans.show(resFragment2);
-			isFragment1 = false;
+				fTrans.hide(resFragment);
+				fTrans.show(resFragment2);
+				isFragment1 = false;
 			} else { 
 				fTrans.hide(resFragment2);
-				
 				fTrans.show(resFragment);
 				isFragment1 = true;
 			}
@@ -131,9 +129,12 @@ public class HomeActivity extends FragmentActivity implements
 					ids[a] = checkAdapter.getItem(i).getId();
 					try {
 						if (answerManager.findAnswerByQuestionId(ids[a]).size() == 0) {
-							Toast.makeText(getApplicationContext(), "dsfdsf",
-									Toast.LENGTH_LONG).show();
-							break;
+//							Toast.makeText(getApplicationContext(), "dsfdsf",
+//									Toast.LENGTH_LONG).show();
+//							break;
+							List<Answer> emptyAnswers = new ArrayList<Answer>();
+							emptyAnswers.add(new Answer(ids[a], "question witout answers!?"));
+							randomList.addAll(emptyAnswers);
 						}
 						randomList.addAll(((DecubeApp) getApplication())
 								.getAnswerManager().findAnswerByQuestionId(
@@ -219,18 +220,21 @@ public class HomeActivity extends FragmentActivity implements
 			List<Answer> randomList = new ArrayList<Answer>();
 			for (int i : checkAdapter.getState().keySet()) {
 				ids[a] = checkAdapter.getItem(i).getId();
-				try {
-					if (answerManager.findAnswerByQuestionId(ids[a]).size() == 0) {
-						Toast.makeText(getApplicationContext(), "dsfdsf",
-								Toast.LENGTH_LONG).show();
-						break;
-					}
-					randomList.addAll(((DecubeApp) getApplication())
-							.getAnswerManager().findAnswerByQuestionId(
-									ids[a]));
-				} catch (SQLException e) {
-					Log.e(HomeActivity.class.getName(), e.getMessage(), e);
-				}
+//				try {
+//					if (answerManager.findAnswerByQuestionId(ids[a]).size() == 0) {
+////						Toast.makeText(getApplicationContext(), "dsfdsf",
+////								Toast.LENGTH_LONG).show();
+////						break;
+//						List<Answer> emptyAnswers = new ArrayList<Answer>();
+//						emptyAnswers.add(new Answer(ids[a], "question witout answers!?"));
+//						randomList.addAll(emptyAnswers);
+//					}
+//					randomList.addAll(((DecubeApp) getApplication())
+//							.getAnswerManager().findAnswerByQuestionId(
+//									ids[a]));
+//				} catch (SQLException e) {
+//					Log.e(HomeActivity.class.getName(), e.getMessage(), e);
+//				}
 				a++;
 			}
 			resFragment.setId(ids);
