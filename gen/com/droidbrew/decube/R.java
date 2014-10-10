@@ -1120,6 +1120,7 @@ containing a value of this type.
         public static final int movingcube9=0x7f020075;
         public static final int question_ball=0x7f020076;
         public static final int red_dice=0x7f020077;
+        public static final int rounded_corners=0x7f020078;
     }
     public static final class id {
         public static final int action_bar=0x7f06001c;

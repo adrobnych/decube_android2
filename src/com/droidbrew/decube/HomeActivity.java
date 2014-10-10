@@ -4,14 +4,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.droidbrew.decube.adapter.CheckBoxAdapter;
-import com.droidbrew.decube.fragments.CheckQuestionFragment;
-import com.droidbrew.decube.fragments.ResultFragment;
-import com.droidbrew.decube.model.Answer;
-import com.droidbrew.decube.model.AnswerManager;
-
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
@@ -30,7 +26,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.droidbrew.decube.adapter.CheckBoxAdapter;
+import com.droidbrew.decube.fragments.CheckQuestionFragment;
+import com.droidbrew.decube.fragments.ResultFragment;
+import com.droidbrew.decube.model.Answer;
+import com.droidbrew.decube.model.AnswerManager;
 
 public class HomeActivity extends FragmentActivity implements
 		SensorEventListener {
@@ -87,15 +88,27 @@ public class HomeActivity extends FragmentActivity implements
 
 	private void onClickCube() {
 		
-		if(!isAnswer) {
-			fTrans = fManager.beginTransaction();
-			fTrans.hide(checkFragment);
-			fTrans.setCustomAnimations(R.animator.slide_in_right,
-					R.animator.slide_in_right);
-			fTrans.show(resFragment);
-			fTrans.commit();
+		if(checkAdapter.getState().size() == 0) {
+//			fTrans = fManager.beginTransaction();
+//			fTrans.hide(checkFragment);
+//			fTrans.setCustomAnimations(R.animator.slide_in_right,
+//					R.animator.slide_in_right);
+//			fTrans.show(resFragment);
+//			fTrans.commit();
+			new AlertDialog.Builder(this)
+		    .setTitle("BOOM!")
+		    .setMessage("You should select at least one question !!!")
+		    .setIcon(android.R.drawable.ic_dialog_alert)
+		    .setPositiveButton("OK",
+                    new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.cancel();
+                }
+            })
+		    .show();
 		} else {
 			fTrans = fManager.beginTransaction();
+			fTrans.hide(checkFragment);
 			fTrans.setCustomAnimations(R.animator.slide_in_right,
 					R.animator.slide_in_right);
 			if(isFragment1) {
@@ -127,25 +140,25 @@ public class HomeActivity extends FragmentActivity implements
 				List<Answer> randomList = new ArrayList<Answer>();
 				for (int i : checkAdapter.getState().keySet()) {
 					ids[a] = checkAdapter.getItem(i).getId();
-					try {
-						if (answerManager.findAnswerByQuestionId(ids[a]).size() == 0) {
-//							Toast.makeText(getApplicationContext(), "dsfdsf",
-//									Toast.LENGTH_LONG).show();
-//							break;
-							List<Answer> emptyAnswers = new ArrayList<Answer>();
-							emptyAnswers.add(new Answer(ids[a], "question witout answers!?"));
-							randomList.addAll(emptyAnswers);
-						}
-						randomList.addAll(((DecubeApp) getApplication())
-								.getAnswerManager().findAnswerByQuestionId(
-										ids[a]));
-					} catch (SQLException e) {
-						Log.e(HomeActivity.class.getName(), e.getMessage(), e);
-					}
+//					try {
+//						if (answerManager.findAnswerByQuestionId(ids[a]).size() == 0) {
+////							Toast.makeText(getApplicationContext(), "dsfdsf",
+////									Toast.LENGTH_LONG).show();
+////							break;
+//							List<Answer> emptyAnswers = new ArrayList<Answer>();
+//							emptyAnswers.add(new Answer(ids[a], "question witout answers!?"));
+//							randomList.addAll(emptyAnswers);
+//						}
+//						randomList.addAll(((DecubeApp) getApplication())
+//								.getAnswerManager().findAnswerByQuestionId(
+//										ids[a]));
+//					} catch (SQLException e) {
+//						Log.e(HomeActivity.class.getName(), e.getMessage(), e);
+//					}
 					a++;
 				}
 				resFragment.setId(ids);
-				onClickCube();
+				//onClickCube();
 				spinStart();
 			}
 		});

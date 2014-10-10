@@ -275,6 +275,7 @@ int drawable movingcube8 0x7f020074
 int drawable movingcube9 0x7f020075
 int drawable question_ball 0x7f020076
 int drawable red_dice 0x7f020077
+int drawable rounded_corners 0x7f020078
 int id action_bar 0x7f06001c
 int id action_bar_activity_content 0x7f060015
 int id action_bar_container 0x7f06001b
