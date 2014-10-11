@@ -62,9 +62,9 @@ public class HomeActivity extends FragmentActivity implements
 		
 		sensorManager = (SensorManager) this
 				.getSystemService(Activity.SENSOR_SERVICE);
-		sensorManager.registerListener(this,
-				sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
-				SensorManager.SENSOR_DELAY_NORMAL);
+//		sensorManager.registerListener(this,
+//				sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+//				SensorManager.SENSOR_DELAY_NORMAL);
 		lastUpdate = System.currentTimeMillis();
 
 		fManager = getSupportFragmentManager();
@@ -85,10 +85,16 @@ public class HomeActivity extends FragmentActivity implements
 		animCube = (AnimationDrawable) imgCube.getBackground();
 	}
 	
-	 protected void onPause() {
+	protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+        		SensorManager.SENSOR_DELAY_NORMAL);
+    }
+	
+	protected void onPause() {
          super.onPause();
          sensorManager.unregisterListener(this);
-     }
+    }
 
 	private void onClickCube() {
 		
@@ -180,8 +186,8 @@ public class HomeActivity extends FragmentActivity implements
 		case android.R.id.home:
 			fTrans = fManager.beginTransaction();
 			fTrans.hide(resFragment);
-			fTrans.setCustomAnimations(R.animator.slide_in_right,
-					R.animator.slide_in_right);
+			fTrans.setCustomAnimations(android.R.anim.slide_in_left,
+					android.R.anim.slide_in_left);
 			fTrans.show(checkFragment);
 			fTrans.commit();
 			break;
