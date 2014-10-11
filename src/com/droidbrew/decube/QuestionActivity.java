@@ -72,8 +72,9 @@ public class QuestionActivity extends Activity {
 
 	@Override
 	public void onBackPressed() {
-		Intent intent = new Intent(this, QuestionActivity.class);
+		Intent intent = new Intent(this, HomeActivity.class);
 		startActivity(intent);
+		overridePendingTransition(R.animator.back_slide_show, R.animator.back_slide_hide);
 		finish();
 	}
 
