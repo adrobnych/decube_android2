@@ -75,7 +75,8 @@ public class ResultFragment extends Fragment{
 				randomList = answerManager.findAnswerByQuestionId(i);
 				if(randomList.size() == 0){
 					List<Answer> emptyAnswers = new ArrayList<Answer>();
-					emptyAnswers.add(new Answer(i, "question without answers!?"));
+					emptyAnswers.add(new Answer(i, 
+							getResources().getString(R.string.answer_activity_no_answer)));
 					randomList.addAll(emptyAnswers);
 				}
 					

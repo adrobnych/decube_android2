@@ -33,6 +33,7 @@ import com.droidbrew.decube.fragments.ResultFragment;
 import com.droidbrew.decube.model.Answer;
 import com.droidbrew.decube.model.AnswerManager;
 
+
 public class HomeActivity extends FragmentActivity implements
 		SensorEventListener {
 
@@ -101,7 +102,7 @@ public class HomeActivity extends FragmentActivity implements
 		if(checkAdapter.getState().size() == 0) {
 			new AlertDialog.Builder(this)
 		    .setTitle("BOOM!")
-		    .setMessage("You should select at least one question !!!")
+		    .setMessage(getResources().getString(R.string.home_activity_no_questions))
 		    .setIcon(android.R.drawable.ic_dialog_alert)
 		    .setPositiveButton("OK",
                     new DialogInterface.OnClickListener() {

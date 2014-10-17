@@ -24,6 +24,7 @@
     
     <!-- HomeActivity -->
     <string name="home_activity_start_webwiew_text">Shake to get answers</string>
+    <string name="home_activity_no_questions">You should select at least one question !!!</string>
     
     <!-- AnswerActivity -->
     <string name="answer_activity_addAnswer_hint">Enter a answer</string>
@@ -31,6 +32,7 @@
     <string name="answer_activity_addAnswer_masage">Add answer</string>
     <string name="answer_activity_addAnswer_pBut">Add</string>
     <string name="answer_activity_addAnswer_nBut">Cancel</string>
+    <string name="answer_activity_no_answer">question without answers!?</string>
     
     <!-- EditItemAnswerActivity -->
 	<string name="editAnswer_activity_dialigSaveAnswer_title">Save Answer?</string>

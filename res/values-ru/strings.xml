@@ -23,6 +23,7 @@
 
     <!-- HomeActivity -->
     <string name="home_activity_start_webwiew_text">Встряхни, чтобы получить ответы</string>
+    <string name="home_activity_no_questions">Выбери хотябы один вопрос !!!</string>
 
     <!-- AnswerActivity -->
     <string name="answer_activity_addAnswer_hint">Введите ответ</string>
@@ -30,6 +31,7 @@
     <string name="answer_activity_addAnswer_masage">Добавить ответ</string>
     <string name="answer_activity_addAnswer_pBut">Добавить</string>
     <string name="answer_activity_addAnswer_nBut">Отмена</string>
+    <string name="answer_activity_no_answer">вопрос без ответа!? О_о</string>
 
     <!-- EditItemAnswerActivity -->
     <string name="editAnswer_activity_dialigSaveAnswer_title">Сохранить oтвет?</string>

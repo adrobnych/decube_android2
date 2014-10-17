@@ -1318,39 +1318,41 @@ containing a value of this type.
         /**  AnswerActivity 
  AnswerActivity 
          */
-        public static final int answer_activity_addAnswer_hint=0x7f0b0020;
-        public static final int answer_activity_addAnswer_masage=0x7f0b0022;
-        public static final int answer_activity_addAnswer_nBut=0x7f0b0024;
-        public static final int answer_activity_addAnswer_pBut=0x7f0b0023;
-        public static final int answer_activity_addAnswer_title=0x7f0b0021;
+        public static final int answer_activity_addAnswer_hint=0x7f0b0021;
+        public static final int answer_activity_addAnswer_masage=0x7f0b0023;
+        public static final int answer_activity_addAnswer_nBut=0x7f0b0025;
+        public static final int answer_activity_addAnswer_pBut=0x7f0b0024;
+        public static final int answer_activity_addAnswer_title=0x7f0b0022;
+        public static final int answer_activity_no_answer=0x7f0b0026;
         public static final int app_name=0x7f0b000d;
         public static final int but_delete=0x7f0b001c;
         public static final int but_save=0x7f0b001b;
         public static final int change=0x7f0b0014;
-        public static final int editAnswer_activity_dialigDeleteAnswer_nBut=0x7f0b002c;
-        public static final int editAnswer_activity_dialigDeleteAnswer_pBut=0x7f0b002b;
-        public static final int editAnswer_activity_dialigDeleteAnswer_title=0x7f0b002a;
-        public static final int editAnswer_activity_dialigSaveAnswer_nBut=0x7f0b0029;
-        public static final int editAnswer_activity_dialigSaveAnswer_pBut=0x7f0b0026;
+        public static final int editAnswer_activity_dialigDeleteAnswer_nBut=0x7f0b002e;
+        public static final int editAnswer_activity_dialigDeleteAnswer_pBut=0x7f0b002d;
+        public static final int editAnswer_activity_dialigDeleteAnswer_title=0x7f0b002c;
+        public static final int editAnswer_activity_dialigSaveAnswer_nBut=0x7f0b002b;
+        public static final int editAnswer_activity_dialigSaveAnswer_pBut=0x7f0b0028;
         /**  EditItemAnswerActivity 
  EditItemAnswerActivity 
          */
-        public static final int editAnswer_activity_dialigSaveAnswer_title=0x7f0b0025;
-        public static final int editAnswer_activity_dialigSaveAnswer_verification_null=0x7f0b0027;
-        public static final int editAnswer_activity_dialigSaveAnswer_verification_save=0x7f0b0028;
-        public static final int editQuestion_activity_dialigDelete_nBut=0x7f0b0034;
-        public static final int editQuestion_activity_dialigDelete_pBut=0x7f0b0033;
-        public static final int editQuestion_activity_dialigDelete_title=0x7f0b0032;
-        public static final int editQuestion_activity_dialigDelete_verification=0x7f0b0035;
-        public static final int editQuestion_activity_dialigSave_nBut=0x7f0b0031;
-        public static final int editQuestion_activity_dialigSave_pBut=0x7f0b002e;
+        public static final int editAnswer_activity_dialigSaveAnswer_title=0x7f0b0027;
+        public static final int editAnswer_activity_dialigSaveAnswer_verification_null=0x7f0b0029;
+        public static final int editAnswer_activity_dialigSaveAnswer_verification_save=0x7f0b002a;
+        public static final int editQuestion_activity_dialigDelete_nBut=0x7f0b0036;
+        public static final int editQuestion_activity_dialigDelete_pBut=0x7f0b0035;
+        public static final int editQuestion_activity_dialigDelete_title=0x7f0b0034;
+        public static final int editQuestion_activity_dialigDelete_verification=0x7f0b0037;
+        public static final int editQuestion_activity_dialigSave_nBut=0x7f0b0033;
+        public static final int editQuestion_activity_dialigSave_pBut=0x7f0b0030;
         /**  EditItemAnswerActivity 
  EditItemAnswerActivity 
          */
-        public static final int editQuestion_activity_dialigSave_title=0x7f0b002d;
-        public static final int editQuestion_activity_dialigSave_verification_null=0x7f0b002f;
-        public static final int editQuestion_activity_dialigSave_verification_save=0x7f0b0030;
+        public static final int editQuestion_activity_dialigSave_title=0x7f0b002f;
+        public static final int editQuestion_activity_dialigSave_verification_null=0x7f0b0031;
+        public static final int editQuestion_activity_dialigSave_verification_save=0x7f0b0032;
         public static final int enrestart=0x7f0b001d;
+        public static final int home_activity_no_questions=0x7f0b0020;
         /**  HomeActivity 
  HomeActivity 
          */
@@ -1370,17 +1372,17 @@ containing a value of this type.
         /**  QuestionEditActivity 
  QuestionEditActivity 
          */
-        public static final int questionEdit_activity_dialogAdd_hint=0x7f0b0039;
-        public static final int questionEdit_activity_dialogAdd_masage=0x7f0b003b;
-        public static final int questionEdit_activity_dialogAdd_nBut=0x7f0b003d;
-        public static final int questionEdit_activity_dialogAdd_pBut=0x7f0b003c;
-        public static final int questionEdit_activity_dialogAdd_title=0x7f0b003a;
-        public static final int question_activity_dialogBack_pBut=0x7f0b0037;
+        public static final int questionEdit_activity_dialogAdd_hint=0x7f0b003b;
+        public static final int questionEdit_activity_dialogAdd_masage=0x7f0b003d;
+        public static final int questionEdit_activity_dialogAdd_nBut=0x7f0b003f;
+        public static final int questionEdit_activity_dialogAdd_pBut=0x7f0b003e;
+        public static final int questionEdit_activity_dialogAdd_title=0x7f0b003c;
+        public static final int question_activity_dialogBack_pBut=0x7f0b0039;
         /**  QuestionActivity 
  QuestionActivity 
          */
-        public static final int question_activity_dialogBack_title=0x7f0b0036;
-        public static final int question_activity_dialogBack_verification_null=0x7f0b0038;
+        public static final int question_activity_dialogBack_title=0x7f0b0038;
+        public static final int question_activity_dialogBack_verification_null=0x7f0b003a;
         public static final int rurestart=0x7f0b001e;
     }
     public static final class style {
